@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #333;
+            color: white;
+            padding: 1rem 2rem;
+        }
+
+            header nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1rem;
+        }
+
+        .hero {
+            background: url('https://picsum.photos/id/1015/1200/500') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            padding: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+            .card:hover {
+                transform: scale(1.03);
+            }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+            .carousel img {
+                width: 100%;
+                display: none;
+            }
+
+                .carousel img.active {
+                    display: block;
+                }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+            .contact-form label {
+                display: block;
+                margin-bottom: 0.5rem;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                width: 100%;
+                padding: 0.75rem;
+                margin-bottom: 1rem;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            .contact-form button {
+                background: #333;
+                color: white;
+                border: none;
+                padding: 0.75rem 1.5rem;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #222;
+            color: white;
+        }
+
+        @media(max-width: 600px) {
+            .hero {
+                font-size: 1.5rem;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">MyPortfolio</div>
+            <div>
+                <a href="#">Home</a>
+                <a href="#">Projects</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        Welcome to My Portfolio
+    </section>
+
+    <section class="grid-container">
+        <div class="card">
+            <h3>Project One</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="card">
+            <h3>Project Two</h3>
+            <p>Architecto assumenda suscipit praesentium tenetur voluptatibus accusamus!</p>
+        </div>
+        <div class="card">
+            <h3>Project Three</h3>
+            <p>Labore magni odit voluptate. Minus doloremque modi excepturi!</p>
+        </div>
+    </section>
+
+    <div class="carousel">
+        <img src="https://picsum.photos/id/1016/600/400" class="active" alt="slide 1">
+        <img src="https://picsum.photos/id/1018/600/400" alt="slide 2">
+        <img src="https://picsum.photos/id/1025/600/400" alt="slide 3">
+    </div>
+
+    <section class="contact-form">
+        <h2>Contact Me</h2>
+        <form id="form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        &copy; 2025 MyPortfolio. All rights reserved.
+    </footer>
+
+    <script>
+    // Carousel functionality
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.carousel img');
+
+    setInterval(() => {
+      slides[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % slides.length;
+      slides[currentIndex].classList.add('active');
+    }, 3000);
+
+    // Form validation
+    document.getElementById('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for contacting me!');
+      this.reset();
+    });
+    </script>
+
+</body>
+</html>
