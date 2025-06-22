@@ -1,1 +1,14 @@
-
+{
+  "name": "html-webapp",
+  "version": "1.0.0",
+  "description": "A simple static HTML web app deployed to Azure",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "author": "Jagdhish",
+  "license": "MIT",
+  "dependencies": {
+    "serve": "^14.2.0"
+  }
+}
